@@ -1,8 +1,8 @@
 <div class="login-screen">
 		<div class="login-form">
-		<form action="<?php echo base_url() . 'adminaction/login'?>" method="POST">
+		<form action="<?= base_url() . 'adminaction/login'?>" method="POST">
 			<div class="loginlogo">
-				<img src="<?php echo base_url() . 'public/img/logo_free.png'?>" />
+				<img src="<?= base_url() . 'public/img/logo_free.png'?>" />
 			</div>
 		<?php if(!isset($error)): ?>
             <div class="form-group">

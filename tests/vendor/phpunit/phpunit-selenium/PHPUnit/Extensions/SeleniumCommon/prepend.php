@@ -53,7 +53,7 @@ if (!isset($GLOBALS['PHPUNIT_COVERAGE_DATA_DIRECTORY'])) {
 }
 
 if ( isset($_COOKIE['PHPUNIT_SELENIUM_TEST_ID']) &&
-    !isset($_GET['PHPUNIT_SELENIUM_TEST_ID']) &&
+    !$this->input->get('PHPUNIT_SELENIUM_TEST_ID') &&
     extension_loaded('xdebug')) {
     $GLOBALS['PHPUNIT_FILTERED_FILES'] = array(__FILE__);
 

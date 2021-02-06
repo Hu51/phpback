@@ -1,20 +1,20 @@
 	<div class="col-md-9">
 	
 		<div class="breadcrumb-wrapper"><ol class="breadcrumb">
-			<li><a href="<?php echo base_url();?>">Feedback</a></li>
-			<li class="active"><?php echo $category->name; ?></li>
+			<li><a href="<?= base_url();?>">Feedback</a></li>
+			<li class="active"><?= $category->name; ?></li>
 		</ol></div>
 		<div>
-			<h5 style="color:#2C3E50;"><?php echo $category->name; ?></h5>
-			<span style="color:#34495E"><small><?php echo $category->description; ?></small></span>
+			<h5 style="color:#2C3E50;"><?= $category->name; ?></h5>
+			<span style="color:#34495E"><small><?= $category->description; ?></small></span>
 		</div>
 		<table id="ideastable" class="table table-condensed">
 		<thead>
 			<tr>
-			  <th><small><?php echo $lang['label_idea']; ?> <a id="order-by--idea" href="<?= $category->url .'/title/'; echo ($type == 'desc') ? 'asc' : 'desc';?>"><span class="glyphicon glyphicon-chevron-<?php echo ($type == 'desc') ? 'down' : 'up'; ?>" style="margin-left:4px"></span></a></small></th>
-			  <th><small><?php echo $lang['label_votes']; ?> <a id="order-by--votes" href="<?= $category->url .'/votes/'; echo ($type == 'desc') ? 'asc' : 'desc';?>"><span class="glyphicon glyphicon-chevron-<?php echo ($type == 'desc') ? 'down' : 'up'; ?>" style="margin-left:4px"></span></a></small></th>
-			  <th><small><?php echo $lang['label_comments']; ?></small></th>
-			  <th><small><?php echo $lang['label_date']; ?> <a id="order-by--date" href="<?= $category->url .'/id/'; echo ($type == 'desc') ? 'asc' : 'desc';?>"><span class="glyphicon glyphicon-chevron-<?php echo ($type == 'desc') ? 'down' : 'up'; ?>" style="margin-left:4px"></span></a></small></th>
+			  <th><small><?= $lang['label_idea']; ?> <a id="order-by--idea" href="<?= $category->url .'/title/'; echo ($type == 'desc') ? 'asc' : 'desc';?>"><span class="glyphicon glyphicon-chevron-<?= ($type == 'desc') ? 'down' : 'up'; ?>" style="margin-left:4px"></span></a></small></th>
+			  <th><small><?= $lang['label_votes']; ?> <a id="order-by--votes" href="<?= $category->url .'/votes/'; echo ($type == 'desc') ? 'asc' : 'desc';?>"><span class="glyphicon glyphicon-chevron-<?= ($type == 'desc') ? 'down' : 'up'; ?>" style="margin-left:4px"></span></a></small></th>
+			  <th><small><?= $lang['label_comments']; ?></small></th>
+			  <th><small><?= $lang['label_date']; ?> <a id="order-by--date" href="<?= $category->url .'/id/'; echo ($type == 'desc') ? 'asc' : 'desc';?>"><span class="glyphicon glyphicon-chevron-<?= ($type == 'desc') ? 'down' : 'up'; ?>" style="margin-left:4px"></span></a></small></th>
 			</tr>
 		</thead>
 		</table>
@@ -37,7 +37,7 @@
 							echo "M";
 							}?>
 						</b></span>
-						<br><div style="margin-top:-10px;font-size:14px"><?php echo $lang['label_votes']; ?></div>
+						<br><div style="margin-top:-10px;font-size:14px"><?= $lang['label_votes']; ?></div>
 					</div>
 					<div class="vote-label">	
 						<span class="label label-<?php
@@ -96,7 +96,7 @@
 					</div>
 					<div style="margin-top:-10px">
 						<ul class="nav-pills" style="list-style:none;margin-left:-40px">
-							<li><small class="result-idea--comments"><?php echo $idea->comments; ?> <?php echo $lang['label_comments']; ?></small></li>
+							<li><small class="result-idea--comments"><?= $idea->comments; ?> <?= $lang['label_comments']; ?></small></li>
 						</ul><br><br>
 					</div>
 				</div>
@@ -106,9 +106,9 @@
 			  <li><a class="pagination--previous" href="<?php if($page > 1) echo $category->url . "/$order/$type/" . ($page-1); else echo '#'; ?>">&laquo;</a></li>
 			  <?php for($i=1;$i<=$pages;$i++){ ?>
 			  	 <?php if($i == $page): ?>
-			  	 	<li class="active"><a class="pagination--current" href=""><?php echo $i;?></a></li>
+			  	 	<li class="active"><a class="pagination--current" href=""><?= $i;?></a></li>
 			  	 <?php else:?>
-			  	 	<li><a class="pagination--page" href='<?php echo $category->url . "/$order/$type/$i"; ?>'><?php echo $i;?></a></li>
+			  	 	<li><a class="pagination--page" href='<?= $category->url . "/$order/$type/$i"; ?>'><?= $i;?></a></li>
 			  	 <?php endif;?>
 
 			  <?php } ?>

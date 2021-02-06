@@ -57,7 +57,7 @@ while ($directory != '/') {
 // in prepend.php, you need to configure the same directory here.
 $GLOBALS['PHPUNIT_COVERAGE_DATA_DIRECTORY'] = getcwd();
 
-if (isset($_GET['PHPUNIT_SELENIUM_TEST_ID'])) {
+if ($this->input->get('PHPUNIT_SELENIUM_TEST_ID')) {
     $facade = new File_Iterator_Facade;
     $files  = $facade->getFilesAsArray(
       $GLOBALS['PHPUNIT_COVERAGE_DATA_DIRECTORY'],

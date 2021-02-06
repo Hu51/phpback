@@ -1,8 +1,8 @@
 <div class="col-md-9">
 			<div class="breadcrumb-wrapper"><ol class="breadcrumb">
-			  <li><a href="<?php echo base_url();?>">Feedback</a></li>
-			  <li><a href="<?php echo base_url() . 'home/category/' . $idea->categoryid . "/" . str_replace(" ", "-", $categories[$idea->categoryid]->name); ?>"><?php echo $categories[$idea->categoryid]->name;?></a></li>
-			  <li class="active"><?php echo $idea->title; ?></li>
+			  <li><a href="<?= base_url();?>">Feedback</a></li>
+			  <li><a href="<?= base_url() . 'home/category/' . $idea->categoryid . "/" . str_replace(" ", "-", $categories[$idea->categoryid]->name); ?>"><?= $categories[$idea->categoryid]->name;?></a></li>
+			  <li class="active"><?= $idea->title; ?></li>
 			</ol></div>
 			
 			<div class="row">
@@ -22,21 +22,21 @@
 							echo "m";
 							}?>
 							</b></span><br>
-						<div style="margin-top:-10px"><small><?php echo $lang['label_votes']; ?></small></div>
+						<div style="margin-top:-10px"><small><?= $lang['label_votes']; ?></small></div>
 					</div>
 					<div class="dropdown view-idea-vote">
-					  <button name="Vote" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style="width:100%"><?php echo $lang['label_vote']; ?></button>
+					  <button name="Vote" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style="width:100%"><?= $lang['label_vote']; ?></button>
 					  <span class="dropdown-arrow dropdown-arrow-inverse"></span>
 					  <ul class="dropdown-menu dropdown-inverse">
-					    <li><a href="<?php echo base_url() . "action/vote/1/" . $idea->id;?>">1 <?php echo $lang['label_votes']; ?></a></li>
-					    <li><a href="<?php echo base_url() . "action/vote/2/" . $idea->id;?>">2 <?php echo $lang['label_votes']; ?></a></li>
-					    <li><a href="<?php echo base_url() . "action/vote/3/" . $idea->id;?>">3 <?php echo $lang['label_votes']; ?></a></li>
+					    <li><a href="<?= base_url() . "action/vote/1/" . $idea->id;?>">1 <?= $lang['label_votes']; ?></a></li>
+					    <li><a href="<?= base_url() . "action/vote/2/" . $idea->id;?>">2 <?= $lang['label_votes']; ?></a></li>
+					    <li><a href="<?= base_url() . "action/vote/3/" . $idea->id;?>">3 <?= $lang['label_votes']; ?></a></li>
 					  </ul>
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-10">
-					<h6><?php echo $idea->title; ?></h6>
-					<span style="color:#34495E"><small><?php echo nl2br($idea->content); ?></small></span>
+					<h6><?= $idea->title; ?></h6>
+					<span style="color:#34495E"><small><?= $idea->content; ?></small></span>
 					<div>
 					<ul class="nav-pills" style="list-style:none;margin-left:-40px">
 					<li style="padding-right:10px"><span class="label label-<?php
@@ -82,10 +82,10 @@
 						break;
 				}
 				?></small></span></li>
-					<li style="padding-right:10px"><small><?php echo $idea->comments;?> <?php echo $lang['label_comments']; ?></small></li>
-					<li style="padding-right:10px"><a href="<?php echo base_url() . 'home/category/' . $idea->categoryid . '/' . str_replace(" ", "-", $categories[$idea->categoryid]->name); ?>"><small><?php echo $categories[$idea->categoryid]->name;?></small></a></li>
+					<li style="padding-right:10px"><small><?= $idea->comments;?> <?= $lang['label_comments']; ?></small></li>
+					<li style="padding-right:10px"><a href="<?= base_url() . 'home/category/' . $idea->categoryid . '/' . str_replace(" ", "-", $categories[$idea->categoryid]->name); ?>"><small><?= $categories[$idea->categoryid]->name;?></small></a></li>
 					</ul><br><br>
-					<small><span class="glyphicon glyphicon-user"></span> <a href="<?php echo base_url() . 'home/profile/' . $idea->authorid . '/' . str_replace(" ", "-", $idea->user); ?>"><?php echo $idea->user; ?></a> <i><?php echo $lang['text_shared_this_idea']; ?></i> <span style='color:#555;margin-left:30px;'><?php echo $idea->date; ?></span></small>
+					<small><span class="glyphicon glyphicon-user"></span> <a href="<?= base_url() . 'home/profile/' . $idea->authorid . '/' . str_replace(" ", "-", $idea->user); ?>"><?= $idea->user; ?></a> <i><?= $lang['text_shared_this_idea']; ?></i> <span style='color:#555;margin-left:30px;'><?= $idea->date; ?></span></small>
 					</div>
 				</div>
 			</div>
@@ -96,26 +96,26 @@
 				<ul class="nav-pills" style="list-style:none;margin-left:-40px;">
 				<li>
 					<?php if($idea->status == 'new'): ?>
-						<a href="<?php echo base_url() . 'adminaction/approveidea/' . $idea->id; ?>"><button type="submit" class="btn btn-success btn-sm" style="width:130px"><?php echo $lang['label_idea_approve']; ?></button></a>
+						<a href="<?= base_url() . 'adminaction/approveidea/' . $idea->id; ?>"><button type="submit" class="btn btn-success btn-sm" style="width:130px"><?= $lang['label_idea_approve']; ?></button></a>
 					<?php elseif($idea->status != 'completed' && $idea->status != 'declined'): ?>
 						<div class="dropdown">
-						  <button class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown" style="width:130px"><?php echo $lang['label_change_status']; ?></button>
+						  <button class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown" style="width:130px"><?= $lang['label_change_status']; ?></button>
 						  <span class="dropdown-arrow dropdown-arrow-inverse"></span>
 						  <ul class="dropdown-menu dropdown-inverse">
-						    <li><a href="<?php echo base_url() . "adminaction/ideastatus/declined/" . $idea->id;?>"><?php echo $lang['idea_declined']; ?></a></li>
-						    <li><a href="<?php echo base_url() . "adminaction/ideastatus/considered/" . $idea->id;?>"><?php echo $lang['idea_considered']; ?></a></li>
-						    <li><a href="<?php echo base_url() . "adminaction/ideastatus/planned/" . $idea->id;?>"><?php echo $lang['idea_planned']; ?></a></li>
-						    <li><a href="<?php echo base_url() . "adminaction/ideastatus/started/" . $idea->id;?>"><?php echo $lang['idea_started']; ?></a></li>
-						    <li><a href="<?php echo base_url() . "adminaction/ideastatus/completed/" . $idea->id;?>"><?php echo $lang['idea_completed']; ?></a></li>
+						    <li><a href="<?= base_url() . "adminaction/ideastatus/declined/" . $idea->id;?>"><?= $lang['idea_declined']; ?></a></li>
+						    <li><a href="<?= base_url() . "adminaction/ideastatus/considered/" . $idea->id;?>"><?= $lang['idea_considered']; ?></a></li>
+						    <li><a href="<?= base_url() . "adminaction/ideastatus/planned/" . $idea->id;?>"><?= $lang['idea_planned']; ?></a></li>
+						    <li><a href="<?= base_url() . "adminaction/ideastatus/started/" . $idea->id;?>"><?= $lang['idea_started']; ?></a></li>
+						    <li><a href="<?= base_url() . "adminaction/ideastatus/completed/" . $idea->id;?>"><?= $lang['idea_completed']; ?></a></li>
 						  </ul>
 						</div>
 					<?php endif; ?>
 				</li>
 				<li>
-					<button type="submit" class="btn btn-danger btn-sm" style="width:130px" <?php $temp = base_url() . 'adminaction/deleteidea/' . $idea->id;?> onclick="popup_sure('<?php echo $lang['text_sure_delete_idea']; ?>','<?php echo $temp; ?>');"><?php echo $lang['label_delete_idea']; ?></button>
+					<button type="submit" class="btn btn-danger btn-sm" style="width:130px" <?php $temp = base_url() . 'adminaction/deleteidea/' . $idea->id;?> onclick="popup_sure('<?= $lang['text_sure_delete_idea']; ?>','<?= $temp; ?>');"><?= $lang['label_delete_idea']; ?></button>
 				</li>
 				<li>
-					<a href="<?php echo base_url() . 'admin/users/' . $idea->authorid; ?>" target="_blank"><button type="submit" class="btn btn-danger btn-sm" style="width:130px"><?php echo $lang['label_ban_user']; ?></button></a>
+					<a href="<?= base_url() . 'admin/users/' . $idea->authorid; ?>" target="_blank"><button type="submit" class="btn btn-danger btn-sm" style="width:130px"><?= $lang['label_ban_user']; ?></button></a>
 				</li>
 
 				</ul>
@@ -126,13 +126,13 @@
 			<?php if(isset($_SESSION['phpback_userid'])): ?>
 			<div class="row">
 				<div class="col-md-10 col-md-offset-2" style="margin-top:10px">
-					<form role="form" method="post" action="<?php echo base_url() . 'action/comment/' . $idea->id; ?>">
+					<form role="form" method="post" action="<?= base_url() . 'action/comment/' . $idea->id; ?>">
 						<div class="form-group">
 						  <label>Comment</label>
 						    <textarea class="form-control" rows="4" name="content"></textarea>
 						  </div>
-						  <input type="hidden" name="ideaname" value="<?php echo str_replace(" ", "-", $idea->title); ?>">
-						  <button type="submit" name="commentbutton" class="btn btn-default"><?php echo $lang['label_submit']; ?></button>
+						  <input type="hidden" name="ideaname" value="<?= str_replace(" ", "-", $idea->title); ?>">
+						  <button type="submit" name="commentbutton" class="btn btn-default"><?= $lang['label_submit']; ?></button>
 					</form>
 				</div>
 			</div>
@@ -143,18 +143,18 @@
 				<div class="col-md-10 col-md-offset-2">
 					<div class="comment-box">
 						<span class="glyphicon glyphicon-comment" style="margin-right:5px"></span>
-						<a href="<?php echo base_url() . 'home/profile/' . $comment->userid . '/' . str_replace(" ", "-", $comment->user); ?>"><?php echo $comment->user; ?></a>
-						<span style="margin-left:15px;color:#555"><?php echo $comment->date; ?></span>
+						<a href="<?= base_url() . 'home/profile/' . $comment->userid . '/' . str_replace(" ", "-", $comment->user); ?>"><?= $comment->user; ?></a>
+						<span style="margin-left:15px;color:#555"><?= $comment->date; ?></span>
 							<span style="margin-left:15px;margin-right:5px">
 							<?php if(isset($_SESSION['phpback_isadmin']) && $_SESSION['phpback_isadmin']): ?>
 							<?php $temp = base_url() . 'adminaction/deletecomment/' . $comment->id; ?>
-								<a style="color:#E25F5F" href="#" onclick="popup_sure('<?php echo $lang['text_sure_delete_comment']; ?>','<?php echo $temp; ?>');"><i><small><?php echo $lang['label_delete_comment']; ?></small></i></a>
+								<a style="color:#E25F5F" href="#" onclick="popup_sure('<?= $lang['text_sure_delete_comment']; ?>','<?= $temp; ?>');"><i><small><?= $lang['label_delete_comment']; ?></small></i></a>
 							<?php else: ?>
-								<a style="color:#E25F5F" href="<?php echo base_url() . 'action/flag/'. $comment->id . '/' . $idea->id . '/' . str_replace(" ", "-", $idea->title);?>"><i><small><?php echo $lang['text_flag_comment']; ?></small></i></a>
+								<a style="color:#E25F5F" href="<?= base_url() . 'action/flag/'. $comment->id . '/' . $idea->id . '/' . str_replace(" ", "-", $idea->title);?>"><i><small><?= $lang['text_flag_comment']; ?></small></i></a>
 							<?php endif;?>
 							</span>
 						<div class="comment-text">
-							<?php echo $comment->content;?>
+							<?= $comment->content;?>
 						</div>
 					 </div>
 				</div>

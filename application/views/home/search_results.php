@@ -1,8 +1,8 @@
 	<div class="col-md-9">
 	
 		<div class="breadcrumb-wrapper"><ol class="breadcrumb">
-			<li><a href="<?php echo base_url();?>">Feedback</a></li>
-			<li class="active"><?php echo $lang['label_search']; ?></li>
+			<li><a href="<?= base_url();?>">Feedback</a></li>
+			<li class="active"><?= $lang['label_search']; ?></li>
 		</ol></div>
 		<?php
 		if(!count($ideas)) echo "<h3><small>" . $lang['text_nothing_found'] . "</small></h3>";
@@ -24,7 +24,7 @@
 								echo "," . (((int) ($idea->votes / 100000)) - $t*10);
 							echo "M";
 							}?></b></span>
-							<br><div style="margin-top:-10px;font-size:14px"><?php echo $lang['label_votes']; ?></div>
+							<br><div style="margin-top:-10px;font-size:14px"><?= $lang['label_votes']; ?></div>
 					</div>
 					<div class="vote-label">	
 						<span class="label label-<?php
@@ -83,7 +83,7 @@
 					</div>
 					<div style="margin-top:-10px">
 						<ul class="nav-pills" style="list-style:none;margin-left:-40px">
-							<li style="padding-right:5px"><small><?php echo $idea->comments; ?> <?php echo $lang['label_comments']; ?></small></li>
+							<li style="padding-right:5px"><small><?= $idea->comments; ?> <?= $lang['label_comments']; ?></small></li>
 						</ul><br><br>
 					</div>
 				</div>
